@@ -1,4 +1,96 @@
 <html>
-	Hello World
+<head>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+var COUNTER = 1;
+
+function getValue(){
+	var totalValue = 0;
+	var totalCredits = 0;
+	//for(
+	for(var i = 1; i < COUNTER; i++){
+		var groupString = "input[name=\"" + "group" + i + "\"]:checked";
+		var credits = "credits" + i;
+		var num1 = document.querySelector(groupString).value;
+		var num2 = document.getElementById(credits).value;
+		totalValue+=num1*num2;
+		totalCredits+=parseInt(num2);
+	}
+	alert(totalValue/totalCredits);
+}
+
+function addElements(){
+
+	var groupName = "group" + COUNTER;
+	var numCredits = "credits" + COUNTER;
+	var container = document.getElementById("myform");
+   
+	var input = document.createElement("input");input.id=numCredits; 
+	input.type = "number";input.placeholder = "# of Credits";
+	container.appendChild(input);
+	//A
+	input = document.createElement("input");input.type = "radio";input.value =4;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "A";
+	//A-
+	input = document.createElement("input");input.type = "radio";input.value =3.7;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "A-";
+	//B+
+	input = document.createElement("input");input.type = "radio";input.value =3.3;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "B+";
+	//B
+	input = document.createElement("input");input.type = "radio";input.value =3.0;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "B";
+	//B-
+	input = document.createElement("input");input.type = "radio";input.value =2.7;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "B-";
+	//C+
+	input = document.createElement("input");input.type = "radio";input.value =2.3;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "C+";
+	//C
+	input = document.createElement("input");input.type = "radio";input.value =2.0;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "C";
+	//C-
+	input = document.createElement("input");input.type = "radio";input.value =1.7;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "C-"
+	//D+
+	input = document.createElement("input");input.type = "radio";input.value =1.3;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "D+"
+	//D
+	input = document.createElement("input");input.type = "radio";input.value =1.0;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "D"
+	//D-
+	input = document.createElement("input");input.type = "radio";input.value =0.7;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "D-"
+	//E
+	input = document.createElement("input");input.type = "radio";input.value =0;input.name =groupName;
+	container.appendChild(input);
+	document.getElementById("myform").innerHTML+= "E"
+	document.getElementById("myform").innerHTML+= "<br>"
+	document.getElementById("myform").innerHTML+= "<br>"
+	COUNTER++;
+}
+
+
+</script>
+</head>
+
+<form id="myform" onsubmit="getValue()">
+	<button class="button1" type="button" onclick="addElements();">Add Class</button>
+	<input type="submit" value="Calculate!"><br><br>
+
+
+</form>
 
 </html>
